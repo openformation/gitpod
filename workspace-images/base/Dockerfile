@@ -61,9 +61,19 @@ RUN curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | s
 # Installation
 #
 RUN sudo apt update && \
-    sudo apt install -y \
+    sudo apt install -yq \
     gh=$GITHUB_CLI_VERSION \
-    google-cloud-sdk=$GCLOUD_SDK_VERSION-0
+    google-cloud-sdk=$GCLOUD_SDK_VERSION-0 \
+    locales && \
+    sudo apt upgrade -y
+
+#
+# Correct Character Encoding
+#
+RUN sudo sed -i '/en_US.UTF-8/s/^# //g' /etc/locale.gen && sudo locale-gen
+ENV LANG en_US.UTF-8  
+ENV LANGUAGE en_US:en
+ENV LC_ALL en_US.UTF-8 
 
 #
 # Cleanup
