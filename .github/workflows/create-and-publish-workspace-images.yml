@@ -25,16 +25,17 @@ jobs:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
       -
-        name: openformation/gitpod-base
+        name: "Image: gitpod-base"
         uses: docker/build-push-action@v2
         with:
           context: workspace-images/base
           push: true
           tags: openformation/gitpod-base:latest
       -
-        name: openformation/gitpod-node
+        name: "Image: gitpod-node"
         uses: docker/build-push-action@v2
         with:
           context: workspace-images/node
+          pull: true
           push: true
           tags: openformation/gitpod-node:latest
