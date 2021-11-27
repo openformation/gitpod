@@ -4,7 +4,7 @@ This repository contains all configurations around our Gitpod workspaces.
 
 - `workspace-images`: This directory contains all our base fine-tuned workspace images we're utilizing within our projects.
 
-## Contribution
+## Contribute
 
 All the built container images are public, so please make sure not to expose anything sensitive within the respective Dockerfiles. If you need something secret within the container, make sure to utilize [Gitpod Variables](https://www.gitpod.io/docs/environment-variables) for that.
 
