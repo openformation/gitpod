@@ -36,6 +36,5 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: workspace-images/node
-          pull: true
           push: true
           tags: openformation/gitpod-node:latest
