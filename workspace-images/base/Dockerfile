@@ -65,7 +65,7 @@ RUN sudo apt update && \
     gh=$GITHUB_CLI_VERSION \
     google-cloud-sdk=$GCLOUD_SDK_VERSION-0 \
     locales && \
-    sudo apt upgrade -y
+    sudo apt dist-upgrade -y
 
 #
 # Correct Character Encoding
