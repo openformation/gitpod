@@ -38,3 +38,10 @@ jobs:
           context: workspace-images/node
           push: true
           tags: openformation/gitpod-node:latest
+      -
+        name: "Image: gitpod-deno"
+        uses: docker/build-push-action@v2
+        with:
+          context: workspace-images/deno
+          push: true
+          tags: openformation/gitpod-deno:latest
