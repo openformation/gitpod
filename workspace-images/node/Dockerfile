@@ -15,3 +15,9 @@ RUN sudo apt update && \
   echo 'eval "$(fnm env)"' >> .bashrc.d/fnm && \
   echo "fnm install --lts &> /dev/null" >> .bashrc.d/fnm && \
   echo "corepack enable" >> .bashrc.d/fnm
+
+#
+# Install build tools for native dependencies
+#
+RUN sudo apt install -yq build-essential python-is-python3 && \
+  echo "alias python=/usr/bin/python2" >> .bashrc.d/python
