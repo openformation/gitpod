@@ -18,7 +18,7 @@ RUN apt update && \
   sudo \
   curl \
   tig \
-  gnupg2 \
+  gnupg \
   tzdata \
   ca-certificates \
   software-properties-common \
@@ -58,12 +58,28 @@ RUN curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | s
   echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
 
 #
+# Docker
+#
+# IMPORTANT: We're installing for `focal` here (as there is not candidate for Ubuntu 22.04 right now)
+RUN curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - && \
+  sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable"
+
+RUN sudo curl -o /usr/bin/slirp4netns -fsSL https://github.com/rootless-containers/slirp4netns/releases/download/v1.1.12/slirp4netns-$(uname -m) \
+    && sudo chmod +x /usr/bin/slirp4netns
+
+RUN sudo curl -o /usr/local/bin/docker-compose -fsSL https://github.com/docker/compose/releases/download/1.29.2/docker-compose-Linux-x86_64 \
+    && sudo chmod +x /usr/local/bin/docker-compose
+
+#
 # Installation
 #
 RUN sudo apt update && \
     sudo apt install -yq \
     gh=$GITHUB_CLI_VERSION \
     google-cloud-sdk=$GCLOUD_SDK_VERSION-0 \
+    docker-ce \
+    docker-ce-cli \
+    containerd.io \
     locales && \
     sudo apt dist-upgrade -y
 
