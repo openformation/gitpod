@@ -8,7 +8,7 @@ ARG DEBIAN_FRONTEND=noninteractive
 # Version Configuration
 #
 ARG GCLOUD_SDK_VERSION=365.0.1
-ARG GITHUB_CLI_VERSION=2.2.0
+ARG GITHUB_CLI_VERSION=2.4.0
 
 #
 # Install base dependencies
