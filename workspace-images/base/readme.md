@@ -1,6 +1,6 @@
 # openformation/gitpod-base
 
-The base image all our other images use as a base.
+The image all our other images use as a base.
 
 ## Distribution
 
