@@ -14,4 +14,4 @@ Whenever changes are getting merged into the `main` branch, the respective image
 
 Copyright © 2020 – 2022 Open Formation GmbH / Hamburg, Germany
 
-See [license.md](license.md).
+See [license](license).
