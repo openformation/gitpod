@@ -77,13 +77,19 @@ RUN sudo curl -o /usr/local/bin/docker-compose -fsSL https://github.com/docker/c
 #
 RUN sudo apt update && \
     sudo apt install -yq \
-    gh=$GITHUB_CLI_VERSION \
-    google-cloud-sdk=$GCLOUD_SDK_VERSION-0 \
     docker-ce \
     docker-ce-cli \
     containerd.io \
     locales && \
     sudo apt dist-upgrade -y
+
+#
+# Install dedicated versions of tools AFTER
+# ̀AFTER `dist-upgrade`
+#
+RUN sudo apt install -yq \
+    gh=$GITHUB_CLI_VERSION \
+    google-cloud-sdk=$GCLOUD_SDK_VERSION-0
 
 #
 # Correct Character Encoding
