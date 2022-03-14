@@ -1,4 +1,4 @@
-FROM ubuntu:22.04
+FROM ubuntu:20.04
 
 LABEL authors="André König <andre.koenig@openformation.io>"
 
@@ -13,17 +13,17 @@ ARG GITHUB_CLI_VERSION=2.5.2
 #
 # Install base dependencies
 #
-RUN apt update && \
-  apt install -yq --no-install-recommends \
-  sudo \
-  curl \
-  tig \
-  gnupg \
-  tzdata \
-  ca-certificates \
-  software-properties-common \
-  vim \
-  zsh
+RUN apt update
+RUN apt install -yq --no-install-recommends \
+      sudo \
+      curl \
+      tig \
+      gnupg \
+      tzdata \
+      ca-certificates \
+      software-properties-common \
+      vim \
+      zsh
 
 #
 # Gitpod User (from Gitpod base Dockerfile)
