@@ -5,7 +5,7 @@ LABEL authors="André König <andre.koenig@openformation.io>"
 #
 # Version Configuration
 #
-ARG DENO_VERSION=1.17.3
+ARG DENO_VERSION=1.20.1
 ARG DENO_RELEASE_URL=https://github.com/denoland/deno/releases/download/v$DENO_VERSION/deno-x86_64-unknown-linux-gnu.zip
 ARG DENO_INSTALL_DIR=/home/gitpod/.deno
 
